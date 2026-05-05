@@ -14,9 +14,15 @@ const server=http.createServer(
         }
         if(req.url == "/home")
         {
-           // const html=fs.readFileSync('public/index.html');
-            res.statusCode=200;
-            res.end('html.toString()');
+            try {
+                const html=fs.readFileSync('public/index.html');
+                res.statusCode=200;
+                res.end(html.toString());
+            } catch (err) {
+            console.error("File Read Error:", err.message);
+            res.status(500).json({ error: "Failed to load index.html", details: err.code });
+            }
+           
             //tst
         }
         else if(req.url =="/about")
