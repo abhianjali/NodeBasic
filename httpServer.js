@@ -1,0 +1,38 @@
+import * as http from 'http';
+import * as fs from 'fs';
+
+const port=process.env.PORT || 8080;
+const server=http.createServer(
+    (req,res)=>{        
+        res.statusCode=200;
+        res.setHeader('Content-type','text/html');
+        
+        if(req.url == "/")
+        {
+            res.statusCode=200;
+            res.end('<h1>Hi Abhishek</h1>')
+        }
+        if(req.url == "/home")
+        {
+            const html=fs.readFileSync('index.html');
+            res.statusCode=200;
+            res.end(html.toString());
+        }
+        else if(req.url =="/about")
+        {
+            //abhi();
+            res.statusCode=200;
+            res.end('<h1>About Abhiaa</h1>')
+        }
+        else
+        {
+            res.statusCode=404;
+            res.end('<h1>Crashed</h1>')
+        }
+       
+    }
+)
+
+server.listen(port,()=>{
+    console.log(`Server is listing on port ${port}`);}
+)
