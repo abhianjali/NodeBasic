@@ -19,8 +19,9 @@ const server=http.createServer(
                 res.statusCode=200;
                 res.end(html.toString());
             } catch (err) {
-            console.error("File Read Error:", err.message);
-            res.status(500).json({ error: "Failed to load index.html", details: err.code });
+                console.error("File Read Error:", err.message);
+               // res.status(500).json({ error: "Failed to load index.html", details: err.code });
+                res.end(err.message);
             }
            
             //tst
