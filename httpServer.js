@@ -17,6 +17,7 @@ const server=http.createServer(
             const html=fs.readFileSync('index.html');
             res.statusCode=200;
             res.end(html.toString());
+            //tst
         }
         else if(req.url =="/about")
         {
