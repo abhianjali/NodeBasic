@@ -17,7 +17,9 @@ const server=http.createServer(
             try {
                 //const filePath = path.join(process.cwd(), 'public', 'index.html');
                 //const html = fs.readFileSync(filePath, 'utf8');
-                const html = fs.readFileSync('root/index.html', 'utf8');
+                const filePath = path.join(process.cwd(), 'root', 'index.html');
+                const html = await fs.readFile(filePath, 'utf8');
+                //const html = fs.readFileSync('root/index.html', 'utf8');
                 res.statusCode=200;
                 res.end(html.toString());
             } catch (err) {
