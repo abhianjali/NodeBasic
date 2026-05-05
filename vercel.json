@@ -1,14 +1,14 @@
 {
     "builds":[
         {
-            "src":"httpserver.js",
+            "src":"httpServer.js",
             "use":"@vercel/node"
         }
     ],
     "routes":[
         {
             "src":"/(.*)",
-            "dest":"httpserver.js"
+            "dest":"httpServer.js"
         }
     ]
 }
