@@ -14,7 +14,7 @@ const server=http.createServer(
         }
         if(req.url == "/home")
         {
-            const html=fs.readFileSync('index.html');
+            const html=fs.readFileSync('public/index.html');
             res.statusCode=200;
             res.end(html.toString());
             //tst
