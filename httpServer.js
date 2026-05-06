@@ -1,5 +1,7 @@
 import * as http from 'http';
 import * as fs from 'fs';
+import path from 'path';
+// import { promises as fs } from 'fs';
 
 const port=process.env.PORT || 8080;
 const server=http.createServer(
@@ -16,8 +18,9 @@ const server=http.createServer(
         {
             try {
                 // const filePath = path.join(process.cwd(), 'public', 'index.html');
-                // const html = fs.readFileSync(filePath, 'utf8');               
-                const html = fs.readFileSync('imp/index.html', 'utf8');
+                // const html = fs.readFileSync(filePath, 'utf8');   
+                const filePath = path.join(process.cwd(), 'imp', 'index.html');
+                const html =  fs.readFileSync(filePath, 'utf8');
                 res.statusCode=200;
                 res.end(html.toString());
             } catch (err) {
